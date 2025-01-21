@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('{% static 'RED.png' %}'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+    <p>Welcome to our Content website</p>
+    <img src="{% static 'ContentsHome.jpeg' %}" alt="Welcome Image" class="welcome-image">
+    
+    <a href="Query_Results">Query Results</a><br>
+    <a href="Add_Actor_to_Movie">Add Actor to Movie</a><br>
+    <a href="Record_Watching">Record Watching</a><br>
+</body>
+</html>

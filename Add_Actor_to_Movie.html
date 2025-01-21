@@ -1,0 +1,48 @@
+
+{% load static %}
+<link rel="stylesheet" href="{%  static 'style.css' %}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('{% static 'RED.png' %}'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+<h1>Add actor to movie</h1>
+<form method="POST" >
+    {% csrf_token %}
+    Actor Name: <textarea name="aname" rows="1" cols="20" required></textarea><br>
+    Movie Title: <textarea name="mname" rows="1" cols="20" required></textarea><br>
+    Salary:   <textarea name="salary" rows="1" cols="20" required></textarea><br>
+    <button type="submit">Submit</button>
+</form>
+    <br>
+    {% if flag %}
+        <p>The movie does not exist.</p>
+        
+    {% elif flag1 %}
+        <p>The actor is already exist in the movie.</p>
+        {% elif flag2 %}
+        <p>The actor asks higher salary then the movie Income.</p>
+    {% elif flag3 %}
+        <p>The actor was successfully added to the movie</p><br>
+    {% endif %}
+    {% if sql_res or flag or flag1 or flag2 or flag3 %}
+       <h3>Last 5 Movies</h3>
+        <table border="=1" width="40%">
+    <th>Title</th>
+    <th>Genre</th>
+    <th>Release Date</th>
+        {% for content in sql_res %}
+            <tr>
+            <td>{{ content.title }} </td>
+            <td>{{ content.genre }} </td>
+            <td>{{ content.releaseDate }} </td>
+            </tr>
+        {% endfor %}
+        {% endif %}
+</table><br>
+<a href="{% url 'Home' %}">Home</a><br>
+<a href="Query_Results">Query Results</a><br>
+<a href="Record_Watching">Record Watching</a><br>
+ </body>
+</html>

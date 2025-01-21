@@ -1,0 +1,102 @@
+body {
+    background-color: darkred;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+p {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+a {
+    font-size: 1.6em;
+    color: white;
+    text-decoration: underline;
+    margin-right: 10px;
+    display: block;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: darkred; /* Darker background color for table headers */
+    color: white; /* White text color for table headers */
+}
+
+form {
+    font-size: 1.5em;
+    margin: 20px auto; /* Center the form and add margin for spacing */
+    max-width: 600px; /* Set a maximum width for better alignment */
+    text-align: left; /* Align text to the left within the form */
+}
+
+form label {
+    font-size: 1.8em; /* Larger font size for form labels */
+    display: block; /* Ensure the label is on its own line */
+    margin-bottom: 10px; /* Add some space below the label */
+}
+
+form select,
+form input[type="text"],
+form input[type="date"],
+form textarea {
+    font-size: 1em; /* Slightly smaller font size */
+    padding: 10px; /* Adjust padding for better appearance */
+    width: 100%; /* Make inputs full width within the form */
+    margin-bottom: 20px; /* Add space below each form element */
+}
+
+form input[type="submit"] {
+    font-size: 1.6em;
+    padding: 12px 24px; /* Adjust padding for the submit button */
+    background-color: firebrick;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: darkred;
+}
+
+/* Added button styles */
+button[type="submit"] {
+    font-size: 1.6em;
+    padding: 12px 24px;
+    background-color: darkred;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: firebrick;
+}
+
+.welcome-image {
+    width: 100%; /* Make the image full width */
+    height: 70vh; /* Set the height to 70% of the viewport height */
+    object-fit: cover; /* Ensure the image covers the entire area without stretching */
+    margin-bottom: 20px; /* Add space below the image */
+}

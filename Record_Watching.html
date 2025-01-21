@@ -1,0 +1,60 @@
+
+{% load static %}
+<link rel="stylesheet" href="{%  static 'style.css' %}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('{% static 'RED.png' %}'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+<h1>Record Watching</h1>
+<form method="POST">
+    {% csrf_token %}
+    User ID:   <select name="list" size="1">
+    <option value="" disabled selected>Select a user</option>
+    {% for user in sql_res %}
+        <option value="{{ user.uid }}">{{ user.uid }}</option>
+    {% endfor %}
+</select><br>
+Movie Title:    <select name="list1" size="1">
+        <option value="" disabled selected>Select a movie</option>
+        {%for movie in sql_res1 %}
+            <option value="{{ movie.title }}"> {{ movie.title }} </option>
+        {% endfor %}
+    </select><br>
+        Watching Date:<label for="datePicker"></label>
+        <input type="date" id="datePicker" name="Date" required>
+<dl>
+    Rating:
+    <dd style="display: inline-block; margin: 0; padding: 5px;">
+        <input type="radio" name="rating" value="1"> 1
+    </dd>
+    <dd style="display: inline-block; margin: 0; padding: 5px;">
+        <input type="radio" name="rating" value="2"> 2
+    </dd>
+    <dd style="display: inline-block; margin: 0; padding: 5px;">
+        <input type="radio" name="rating" value="3"> 3
+    </dd>
+    <dd style="display: inline-block; margin: 0; padding: 5px;">
+        <input type="radio" name="rating" value="4"> 4
+    </dd>
+    <dd style="display: inline-block; margin: 0; padding: 5px;">
+        <input type="radio" name="rating" value="5"> 5
+    </dd>
+</dl>
+<button type="submit">Submit</button>
+</form>
+    {% if flag %}
+        <p>The record is already exist in the data base.</p>
+        {% elif flag1 %}
+        <p>There is later viewing date.</p>
+    {% elif flag2 %}
+        <p>Date entered earlier than movie upload date.</p>
+{% elif flag3 %}
+        <p>The record was successfully added.</p><br>
+{% endif %}
+<a href="{% url 'Home' %}">Home</a><br>
+<a href="Query_Results">Query Results</a><br>
+<a href="Add_Actor_to_Movie">Add Actor to Movie</a><br>
+</body>
+</html>

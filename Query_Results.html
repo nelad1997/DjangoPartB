@@ -1,0 +1,71 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query Results</title>
+</head>
+<body style="background-image: url('{% static 'RED.png' %}'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+    <h1>Query Results</h1><br>
+    <h3>Query 1:</h3>
+    <table border="1" width="40%">
+        <thead>
+            <tr>
+                <th>Genre</th>
+                <th>Number of Movies</th>
+                <th>Average Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for content in sql_res1 %}
+                <tr>
+                    <td>{{ content.genre }}</td>
+                    <td>{{ content.numOfMovies }}</td>
+                    <td>{{ content.avgR }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table><br>
+
+    <h3>Query 2:</h3>
+    <table border="1" width="20%">
+        <thead>
+            <tr>
+                <th>Actor Name</th>
+                <th>Number of Movies</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for content1 in sql_res2 %}
+                <tr>
+                    <td>{{ content1.aname }}</td>
+                    <td>{{ content1.numOfMovies }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table><br>
+
+    <h3>Query 3:</h3>
+    <table border="1" width="20%">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>User ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for content2 in sql_res3 %}
+                <tr>
+                    <td>{{ content2.country }}</td>
+                    <td>{{ content2.uid }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table><br>
+
+    <a href="{% url 'Home' %}">Home</a><br>
+    <a href="Add_Actor_to_Movie">Add Actor to Movie</a><br>
+    <a href="Record_Watching">Record Watching</a><br>
+</body>
+</html>
